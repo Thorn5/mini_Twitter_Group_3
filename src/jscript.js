@@ -1,13 +1,22 @@
 const postsContainer = document.getElementById("posts");
+
+// document.getElementById("posts").innerHTML = "Loading...";
 fetch('https://twitter-mini-ansa.herokuapp.com/tweet/list')
   .then(response => response.json())
-  // .then(json => console.log(json.tweets[2]))
+  .then(json => json.tweets[2])
   // .then(json => localStorage.setItem("tweets", JSON.stringify(json.tweets)))
-  .then((data) => data.forEach((post) => renderPost(post)))
-  .catch((err) => {
-    renderError(err);
-  })
-  ;
+  for (let index = 0; index < json.length; index++) {
+    renderPost(_id, text, owner, date);
+    
+  }
+  // .then((data) => data.forEach((post) => renderPost(post)))
+  // .then((json) => json.forEach((_id, text, owner, date) => renderPost(_id, text, owner, date)))
+
+   // .catch((err) => {
+    // renderError(err);
+  // })
+    ;
+
 
 
 //  const renderPost = ({ id, userId, title, body }) => {
