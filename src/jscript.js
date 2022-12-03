@@ -4,9 +4,9 @@ fetch('https://twitter-mini-ansa.herokuapp.com/tweet/list')
   // .then(json => console.log(json.tweets[2]))
   // .then(json => localStorage.setItem("tweets", JSON.stringify(json.tweets)))
   .then((data) => data.forEach((post) => renderPost(post)))
-  // .catch((err) => {
-  //   renderError(err);
-  //})
+  .catch((err) => {
+    renderError(err);
+  })
   ;
 
 
